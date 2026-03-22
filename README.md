@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PullUp 📍
+
+> *Don't wait for plans. Post where you're at, and let people pull up.*
+
+PullUp is a location-based social app that lets you create and discover real-life hangouts around you. No existing friend group needed — just post what you're doing, where you are, and let others nearby join in.
+
+---
+
+## The Idea
+
+Socializing in cities is harder than it looks. Everyone's on their phone but nobody's actually linking. PullUp solves that by making spontaneous, low-pressure meetups easy — you post a hangout on the map, others see it, they pull up. Simple.
+
+---
+
+## Features (MVP)
+
+- 🗺️ **Map-based discovery** — See live hangouts pinned on a map around you
+- 📌 **Create hangouts** — Click anywhere on the map to post an event with a title, description, time and location
+- 🔐 **Authentication** — Sign in with Google or register with email and password
+- 📬 **Join requests** *(OTW)* — Send a message to the host to join their hangout
+- 👤 **User profiles** *(OTW)* — See who's behind the hangout before you pull up
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js 15 (App Router), React, TypeScript |
+| Styling | Tailwind CSS |
+| Map | Mapbox GL JS |
+| Database | MongoDB |
+| ODM | Mongoose |
+| Auth | NextAuth v5 (Google + Credentials) |
+| Password Hashing | bcryptjs |
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- MongoDB (local or Atlas)
+- Mapbox account
+- Google OAuth credentials
+
+### Installation
+
+```bash
+git clone https://github.com/yourusername/pullup.git
+cd pullup
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_token
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+AUTH_SECRET=your_auth_secret
+```
+
+### Run Locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) and you're in.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+/app
+  /api
+    /events       → GET and POST hangouts
+    /auth         → NextAuth handler + register endpoint
+  /auth
+    /signin       → Sign in page
+    /register     → Register page
+  /components
+    Map.tsx           → Mapbox map with event pins
+    CreateEventForm.tsx → Form to post a hangout
+  /lib
+    mongoose.ts       → MongoDB connection
+    auth.ts           → NextAuth config
+    /models
+      Event.ts        → Event schema
+      User.ts         → User schema
+```
+---
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## About
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Built by [@MMwenda](https://github.com/MMwenda) — a developer who got tired of having nowhere to be and decided to build the solution.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Still under construction. But the foundation ni safi.* 🔨
