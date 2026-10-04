@@ -7,6 +7,7 @@ const EventSchema = new Schema({
     longitude: {type: Number, required: true },
     time: {type: Date, required: true },
     createdAt: {type: Date, default: Date.now },
+    userId: {type: String, required: true},
 })
 
 const Event = models.Event || model("Event", EventSchema);

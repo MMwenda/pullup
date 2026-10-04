@@ -1,3 +1,4 @@
+import { auth } from "@/app/lib/auth";
 import { connectDB } from "@/app/lib/mongoose";
 import Event from "@/app/lib/models/Event";
 import { NextResponse } from "next/server"; //Next.js's way of sending responses back from an API route
@@ -15,6 +16,13 @@ export async function GET() {
 
 export async function POST(req: Request) {
     //req is the incoming request, it contains the data the user sent.
+
+    const session = await auth();
+    if(!session?.user) {
+        return NextResponse.json({error: "Unauthorized"}, {status: 401});
+    }
+    //Check if the user is logged in. If not, return a 401 Unauthorized response.
+
     await connectDB();
     const body = await req.json();
 
@@ -24,6 +32,7 @@ export async function POST(req: Request) {
     latitude: body.latitude,
     longitude: body.longitude,
     time: new Date(body.time),
+    userId: session.user.id,
   });
   //Create a new document in MongoDB using the data from the request body.
   //new Date(body.time) converts the time string like "2026-03-25T17:00:00.000Z" into an actual JavaScript Date object — because that's what your schema expects.
