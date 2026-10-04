@@ -2,13 +2,13 @@
 
 > *Don't wait for plans. Post where you're at, and let people pull up.*
 
-PullUp is a location-based social app that lets you create and discover real-life hangouts around you. No existing friend group needed — just post what you're doing, where you are, and let others nearby join in.
+PullUp is a location-based social app that lets you create and discover real-life hangouts around you. No existing friend group needed, just post what you're doing, where you are, and let others nearby join in.
 
 ---
 
 ## The Idea
 
-Socializing in cities is harder than it looks. Everyone's on their phone but nobody's actually linking. PullUp solves that by making spontaneous, low-pressure meetups easy — you post a hangout on the map, others see it, they pull up. Simple.
+Socializing in cities is harder than it looks. Everyone's on their phone but nobody's actually linking. PullUp solves that by making spontaneous, low-pressure meetups easy, you post a hangout on the map, others see it, they pull up. Simple.
 
 ---
 
